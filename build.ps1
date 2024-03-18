@@ -1,11 +1,14 @@
 Function MyClean {
     [OutputType([System.Void])]
-    param()
+    param(
+        [switch]$run
+    )
 
     Get-ChildItem -Path "$($PSScriptRoot)/dist" | Where-Object { 
         $_.FullName -match ".obj" `
             -or $_.FullName -match ".pdb" `
             -or $_.FullName -match ".idb" `
+            -or $_.FullName -match ".ilk" 
     } | ForEach-Object {
         Remove-Item $_.FullName;
     }
@@ -31,7 +34,9 @@ try {
     
         Pop-Location;
     
-        & "$($PSScriptRoot)/dist/hello-qt.exe";
+        if ($run) {
+            & "$($PSScriptRoot)/dist/hello-qt.exe";
+        }
     }
     else {
         # build somehow in another OS here assuming someone else has powershell installed
