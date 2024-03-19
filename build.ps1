@@ -1,8 +1,9 @@
+param(
+    [switch]$run
+)
 Function MyClean {
     [OutputType([System.Void])]
-    param(
-        [switch]$run
-    )
+    param()
 
     Get-ChildItem -Path "$($PSScriptRoot)/dist" | Where-Object { 
         $_.FullName -match ".obj" `
@@ -20,8 +21,6 @@ try {
     
         MyClean;
 
-        
-
         Push-Location src;
     
         cmd /s /v /c "build.bat";
@@ -29,7 +28,7 @@ try {
         Write-Host "last exit code $LASTEXITCODE";
     
         if ($LASTEXITCODE -ne 0) {
-            exit $LASTEXITCODE;
+            throw "code compiling/linking failed with exit code => $LASTEXITCODE";
         }
     
         Pop-Location;
@@ -43,6 +42,7 @@ try {
     }
 }
 catch {
+    Write-Host "[ERROR]: $_" -ForegroundColor Red;
     Pop-Location
 }
 
