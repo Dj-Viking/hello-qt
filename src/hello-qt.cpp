@@ -4,19 +4,28 @@
 #include "libloaderapi.h"
 #include <QApplication>
 #include "winbase.h"
+#include "GetLastErrorAsString.h"
 
 int main(int argc, char **argv)
 {
+
+    DLL_DIRECTORY_COOKIE dircookie = AddDllDirectory(L"\\..\\..\\..\\qt5-build\\qtbase");
+    if (!dircookie)
+    {
+        const char *msg = GetLastErrorAsString();
+        printf("Could not add directory qt5base\\bin, Error %s.\n", msg);
+        return 1;
+    }
     HMODULE hLib = LoadLibraryExA("Qt5Widgets.dll", NULL, NULL);
     if (!hLib)
     {
-        DWORD error = GetLastError();
-        wprintf(L"Could not load Qt5Widgets.dll, Error #%d.\n", error);
+        const char *msg = GetLastErrorAsString();
+        printf("Could not load Qt5Widgets.dll, Error %s.\n", msg);
         return 1;
     }
 
     int something = 0;
-    // QApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     printf("hello world\n");
 
