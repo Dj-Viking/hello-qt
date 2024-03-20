@@ -24,10 +24,11 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    int something = 0;
     QApplication app(argc, argv);
 
     printf("hello world\n");
+
+    app.exec();
 
     return 0;
 }
