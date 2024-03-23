@@ -31,6 +31,9 @@ set libs=""
 @REM set libs=%libs% Qt5Widgets.lib
 
 set objs=hello-qt.obj GetLastErrorAsString.obj
+
+@REM this is a way to prepend all the options I want to the beginning of the argument list to 
+@REM calling link.exe 
 set LINK=/NOLOGO
 set LINK=/DEBUG %LINK%
 set LINK=%LINK% %objs%
