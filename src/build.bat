@@ -27,7 +27,6 @@ set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files\Microsoft Visual Studio\202
 set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\um\x64" 
 set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\ucrt\x64" 
 set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\um\x64"
-set out=/OUT:".\hello-qt.exe"
 set libs=""
 @REM set libs=%libs% Qt5Widgets.lib
 
@@ -36,7 +35,6 @@ set LINK=/NOLOGO
 set LINK=/DEBUG %LINK%
 set LINK=%LINK% %objs%
 set LINK=%LINK% %lib_paths%
-set LINK=%LINK% %out%
 
 link /OUT:".\hello-qt.exe"
 
