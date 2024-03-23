@@ -18,8 +18,7 @@ set include_paths=%include_paths% /I%visual_studio%\2022\Community\VC\Tools\MSVC
 set include_paths=%include_paths% /I%windows_kits%\10\Include\10.0.22621.0\ucrt
 
 set srcs=..\src\hello-qt.cpp 
-set srcs=%srcs% ..\src\GetLastErrorAsString.cpp
-set srcs=%srcs% ..\src\LoadLibraries.cpp
+set srcs=%srcs% ..\src\utils.cpp
 
 cl %include_paths% %srcs%
 echo "error level %errorlevel%"
@@ -39,7 +38,7 @@ set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\1
 
 set libs=Qt5Widgets.lib
 
-set objs=hello-qt.obj GetLastErrorAsString.obj LoadLibraries.obj
+set objs=hello-qt.obj utils.obj
 
 @REM this is a way to prepend all the options I want to the beginning of the argument list to 
 @REM calling link.exe 
