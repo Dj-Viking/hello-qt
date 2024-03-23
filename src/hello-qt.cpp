@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
 
-    DLL_DIRECTORY_COOKIE dircookie = AddDllDirectory(L"\\..\\..\\..\\qt5-build\\qtbase");
+    DLL_DIRECTORY_COOKIE dircookie = AddDllDirectory(L"\\..\\..\\..\\qt5-build\\qtbase\\lib");
     if (!dircookie)
     {
         const char *msg = GetLastErrorAsString();
