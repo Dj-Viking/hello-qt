@@ -25,12 +25,17 @@ try {
     
         cmd /s /v /c "build.bat";
     
-        Write-Host "last exit code $LASTEXITCODE";
-    
         if ($LASTEXITCODE -ne 0) {
             throw "code compiling/linking failed with exit code => $LASTEXITCODE";
         }
-    
+        elseif ($LASTEXITCODE -gt 0) {
+            Write-Host "[INFO]: last exit code $LASTEXITCODE" -ForegroundColor Yellow;
+        }
+        elseif ($LASTEXITCODE -eq 0) {
+            Write-Host "[INFO]: last exit code $LASTEXITCODE" -ForegroundColor Green;
+        }
+
+        
         Pop-Location;
     
         if ($run) {
@@ -45,5 +50,3 @@ catch {
     Write-Host "[ERROR]: $_" -ForegroundColor Red;
     Pop-Location
 }
-
-Set-Location $PSScriptRoot;
