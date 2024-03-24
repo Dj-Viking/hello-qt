@@ -2,12 +2,11 @@
     "configurations": [
         {
             "name": "Win32",
-            "includePath": [
-                "${default}",
-                "${workspaceRoot}\\..\\..\\..\\..\\qt5-build\\qtbase\\include\\QtWidgets",
-                "C:\\qt5-build\\qtbase\\include\\",
-                "C:\\qt5-build\\qtbase\\include\\QtWidgets\\"
-            ],
+          "includePath": [
+            "${default}",
+            "${workspaceRoot}\\..\\..\\..\\..\\qt5-build\\qtbase\\include\\QtWidgets",
+            "${workspaceRoot}\\..\\..\\..\\..\\qt5-build\\qtbase\\include\\"
+          ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",

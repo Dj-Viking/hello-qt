@@ -7,10 +7,9 @@
       "name": "x86-Debug",
       "includePath": [
         "${workspaceRoot}\\..\\..\\..\\..\\qt5-build\\qtbase\\include\\QtWidgets",
+        "${workspaceRoot}\\..\\..\\..\\..\\qt5-build\\qtbase\\include\\",
         "${env.INCLUDE}",
-        "${workspaceRoot}\\**",
-        "C:\\qt5-build\\qtbase\\include\\",
-        "C:\\qt5-build\\qtbase\\include\\Qt5Widgets\\"
+        "${workspaceRoot}\\**"
       ],
       "defines": [
         "WIN32",
