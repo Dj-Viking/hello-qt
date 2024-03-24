@@ -34,11 +34,11 @@ set lib_paths=/LIBPATH:"C:\qt5-build\qtbase\lib"
 set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\lib\x64" 
 set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\um\x64" 
 set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\ucrt\x64" 
-set lib_paths=%lib_paths% /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\um\x64"
 
+@REM required for most everything from qt5
 set libs=Qt5Widgets.lib
-set libs=%libs% Qt5Core.lib
-
+@REM required to create a window
+set libs=%libs% Qt5Core.lib 
 
 set objs=hello-qt.obj 
 set objs=%objs% utils.obj
