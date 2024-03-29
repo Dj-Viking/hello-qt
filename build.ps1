@@ -5,13 +5,15 @@ Function MyClean {
     [OutputType([System.Void])]
     param()
 
-    Get-ChildItem -Path "$($PSScriptRoot)/dist" | Where-Object { 
-        $_.FullName -match ".obj" `
-            -or $_.FullName -match ".pdb" `
-            -or $_.FullName -match ".idb" `
-            -or $_.FullName -match ".ilk" 
-    } | ForEach-Object {
-        Remove-Item $_.FullName;
+    if (Test-Path -Path "$($PSScriptRoot)/dist") {
+        Get-ChildItem -Path "$($PSScriptRoot)/dist" | Where-Object { 
+            $_.FullName -match ".obj" `
+                -or $_.FullName -match ".pdb" `
+                -or $_.FullName -match ".idb" `
+                -or $_.FullName -match ".ilk" 
+        } | ForEach-Object {
+            Remove-Item $_.FullName;
+        }
     }
 
 }
